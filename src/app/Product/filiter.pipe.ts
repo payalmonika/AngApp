@@ -2,16 +2,20 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Iprod } from './prod.model';
 
 @Pipe({
-name:'filter'
+name:'filterProduct'
 })
 
 export class FilterPipe implements PipeTransform{
-    transform(value:Iprod,searchtext:string)
+    transform(value:Iprod[],searchprod:string)
     {
-        if(!value) return[];
-        if (!searchtext) return value;
-        searchtext= searchtext.toLowerCase();
-        return value.name
+        searchprod=searchprod? searchprod.toLowerCase():null ;
+        return searchprod? value.filter((product:Iprod)=>
+        (product.name.toLowerCase().indexOf(searchprod)!==-1)) : value;
+            
+        //if(!value) return[];
+        //if (!searchtext) return value;
+        //searchtext= searchtext.toLowerCase();
+        //return value.name
     }
 
 }

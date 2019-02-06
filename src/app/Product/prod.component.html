@@ -1,11 +1,12 @@
 <div class="jumbotron jumbotron-fluid" >
         <div class="container">
-          <p>FilterBy:<input type="text" placeholder="Search your products here:"[(ngModel)]="searchData">  </p>     
+          <p>FilterBy:<input type="text" placeholder="Search your products here:"[(ngModel)]="searchprod">  </p>     
           <p>{{searchData}}</p>
+          <h4>Number of product filter:  {{(products|filterProduct:searchprod).length}}</h4>
         </div>
       </div>
 <div class="card-columns">
-    <div class="card" *ngFor="let Pr of products">
+    <div class="card" *ngFor="let Pr of products | filterProduct :searchprod">
             <div class="card-header">{{Pr.name | uppercase}}</div>
             <img class="card-img-top" [src]="Pr.imageUrl"
                          *ngIf="Showimage"
@@ -16,9 +17,12 @@
                <p>{{Pr._id}}</p> 
                <p>{{Pr.type}}</p>
                <p>{{Pr.language}}</p>
+               <p><app-rating [rating]="Pr.rate"></app-rating></p>
+              
             </div> 
             <div class="card-footer">
                     <a href="#" class="btn btn-primary">Full Details</a>
+                    <span class="glyphicon glyphicon-star"></span>
             </div>
     </div>
 </div>

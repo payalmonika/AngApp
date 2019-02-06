@@ -7,6 +7,9 @@ import{ FormsModule } from "@angular/forms";
 import {AppComponent} from './app.component';
 //import { DetailComponent } from './detail.component';
 import { PrdDetailComponent } from './Product/prod.component';
+import { FilterPipe } from './Product/filiter.pipe';
+import { prodService } from './Product/prod.service';
+import { StarComponent } from './Shared/star_rating.component';
 
 // decorator
 @NgModule({
@@ -20,7 +23,9 @@ import { PrdDetailComponent } from './Product/prod.component';
     declarations: [
         AppComponent,
        // DetailComponent,
-        PrdDetailComponent
+        PrdDetailComponent,
+        FilterPipe,
+        StarComponent
     ],
 
     // only and only first component
@@ -29,7 +34,9 @@ import { PrdDetailComponent } from './Product/prod.component';
     ],
 
     // all the services
-    providers: [ ]
+    providers: [
+        prodService
+     ]
 })
 
 export class AppModule {
