@@ -14,14 +14,16 @@
                          >
             <div class="card-body">
                     <h4 class="card-title"></h4>
-               <p>{{Pr._id}}</p> 
-               <p>{{Pr.type}}</p>
-               <p>{{Pr.language}}</p>
+               <p>{{Pr.productId}}</p> 
+               <p>{{Pr.productName}}</p>
+               <p>{{Pr.productCode}}</p>
                <p><app-rating [rating]="Pr.rate"></app-rating></p>
               
             </div> 
             <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Full Details</a>
+                    <a  class="btn btn-primary"  [routerLink]="['/products',Pr.productId]" 
+                    [queryParams]="{Qname:Pr.productId,Qimg:Pr.imageUrl}"
+                     >Full Details</a>
                     <span class="glyphicon glyphicon-star"></span>
             </div>
     </div>
@@ -56,8 +58,7 @@
                                     {{o.cover}}
                                 </td>  
                                  <td>
-                                        <button data-toggle="collapse" data-target="#demo">BindAlbum</button>
-
+                                <button data-toggle="collapse" data-target="#demo">BindAlbum</button>
                                         <div id="demo" class="collapse">
                                       <table class="table-bordered ">
                                           <thead>

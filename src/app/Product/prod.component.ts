@@ -174,6 +174,6 @@ export class PrdDetailComponent implements OnInit {
     constructor (private _prodservice:prodService){};
     ngOnInit() :void
     {
-        this.products=this._prodservice.getproduct();
+        this._prodservice.getproduct().subscribe((mydata)=>this.products=mydata);
     }
 }

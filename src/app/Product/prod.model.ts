@@ -1,8 +1,9 @@
 export interface Iprod{
-    _id:String;
-    name:String;
-    rate:Number;
+    productId:String;
+    productName:String;
+    starRating:Number;
     imageUrl:String;
-    language:String;
+    productCode:String;
     type:String;
+    
 }
